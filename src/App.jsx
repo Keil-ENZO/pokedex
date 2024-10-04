@@ -1,18 +1,21 @@
+import Header from "@/layout/Header"
+import Footer from "@/layout/Footer"
+import PokemonCard from "./components/PokemonCard";
+import SearchBar from "./components/SearchBar.jsx";
+import {PokemonProvider} from "@/context/PokemonContext"
 
-// https://pokeapi.co/api/v2/pokemon
-import { Button } from "@/components/ui/button"
 
 function App() {
-  return (
-    <>
-      <div>
-            <p className={"bg-red-500"}>test</p>
-          <Button>Button</Button>
 
-      </div>
+    return (
 
-    </>
-  )
+        <PokemonProvider>
+            <Header/>
+            <SearchBar/>
+            <PokemonCard/>
+            <Footer/>
+        </PokemonProvider>
+    )
 }
 
 export default App
