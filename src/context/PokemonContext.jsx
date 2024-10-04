@@ -1,6 +1,6 @@
 // src/context/PokemonContext.jsx
 import {createContext, useState, useEffect} from "react";
-import client from "@/lib/api";
+import client from "@/utils/api";
 
 const PokemonContext = createContext([]);
 const SearchContext = createContext({
@@ -9,12 +9,13 @@ const SearchContext = createContext({
 const ChangeLanguageContext = createContext({
     language: "fr",
 })
+const TypesContext = createContext([]);
 
-// eslint-disable-next-line react/prop-types
 export const PokemonProvider = ({children}) => {
     const [listPokemon, setListPokemon] = useState([]);
     const [query, setQuery] = useState("");
     const [language, setLanguage] = useState("fr");
+    const [types, setTypes] = useState([]);
 
     useEffect(() => {
         client.getPokemon().then((response) => {
@@ -24,15 +25,25 @@ export const PokemonProvider = ({children}) => {
         });
     }, []);
 
+    useEffect(() => {
+        client.getTypes().then((response) => {
+            setTypes(response.data);
+        }).catch((error) => {
+            console.log(error);
+        });
+    }, []);
+
     return (
         <PokemonContext.Provider value={listPokemon}>
-            <SearchContext.Provider value={{query, setQuery}}>
-                <ChangeLanguageContext.Provider value={{language, setLanguage}}>
-                    {children}
-                </ChangeLanguageContext.Provider>
-            </SearchContext.Provider>
+            <TypesContext.Provider value={types}>
+                <SearchContext.Provider value={{query, setQuery}}>
+                    <ChangeLanguageContext.Provider value={{language, setLanguage}}>
+                        {children}
+                    </ChangeLanguageContext.Provider>
+                </SearchContext.Provider>
+            </TypesContext.Provider>
         </PokemonContext.Provider>
     );
 };
 
-export {PokemonContext, SearchContext, ChangeLanguageContext};
+export {PokemonContext, SearchContext, ChangeLanguageContext, TypesContext};
