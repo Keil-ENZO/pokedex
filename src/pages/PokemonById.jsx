@@ -1,10 +1,14 @@
-import React from 'react';
+import {useParams} from "react-router-dom";
+import PokemonDetail from "../components/PokemonDetail.jsx";
+
 
 const PokemonById = () => {
+
+    const pokemonId = useParams().pokemonId;
     return (
-        <div>
-            
-        </div>
+        <>
+            <PokemonDetail pokemonId={pokemonId}/>
+        </>
     );
 };
 

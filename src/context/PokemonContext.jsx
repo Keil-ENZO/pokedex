@@ -20,6 +20,7 @@ export const PokemonProvider = ({children}) => {
     useEffect(() => {
         client.getPokemon().then((response) => {
             setListPokemon(response.data);
+            console.log(response.data);
         }).catch((error) => {
             console.log(error);
         });
