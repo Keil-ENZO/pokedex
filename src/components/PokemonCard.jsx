@@ -34,7 +34,6 @@ const PokemonCard = () => {
                         if (!selectedType) return true;
                         return pokemon.types.some((type) => type.toLowerCase() === selectedType.toLowerCase());
                     })
-                    .slice(0, 50)
                     .map((pokemon) => (
                         <Card
                             className="w-[320px] h-[460px] flex items-center justify-between flex-col m-8 outline outline-[10px] outline-border"
