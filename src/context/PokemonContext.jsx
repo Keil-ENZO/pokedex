@@ -16,8 +16,8 @@ const TypesContext = createContext({
 
 export const PokemonProvider = ({children}) => {
     const [listPokemon, setListPokemon] = useState([]);
-    const [query, setQuery] = useState("");
-    const [language, setLanguage] = useState("fr");
+    const [query, setQuery] = useState(localStorage.getItem("query") || "");
+    const [language, setLanguage] = useState(localStorage.getItem("language") || "fr");
     const [types, setTypes] = useState([]);
     const [selectedType, setSelectedType] = useState(null);
 
@@ -37,6 +37,10 @@ export const PokemonProvider = ({children}) => {
             console.log(error);
         });
     }, []);
+
+    useEffect(() => {
+        localStorage.setItem("language", language);
+    }, [language]);
 
     return (
         <PokemonContext.Provider value={listPokemon}>

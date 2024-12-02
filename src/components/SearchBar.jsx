@@ -1,9 +1,13 @@
 import { Input } from "@/components/ui/input";
-import { useContext } from "react";
+import {useContext, useEffect} from "react";
 import { SearchContext } from "@/context/PokemonContext";
 
 const SearchBar = () => {
     const { query, setQuery } = useContext(SearchContext);
+
+    useEffect(() => {
+        localStorage.setItem("query", query);
+    }, [query]);
 
     return (
         <div className={"flex justify-center items-center"}>

@@ -5,12 +5,16 @@ import {
     SelectTrigger,
     SelectValue,
 } from "@/components/ui/select"
-import { useContext } from "react"
+import {useContext, useEffect} from "react"
 import { ChangeLanguageContext } from "@/context/PokemonContext"
 
 const SelectLanguage = () => {
 
     const { language, setLanguage } = useContext(ChangeLanguageContext)
+
+        useEffect(() => {
+            localStorage.setItem("language", language);
+        }, [language]);
 
     return (
         <Select onValueChange={(value) => setLanguage(value)}>
