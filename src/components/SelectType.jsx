@@ -19,7 +19,7 @@ const SelectType = () => {
     };
 
     return (
-        <Select onValueChange={handleSelectType} value={selectedType}>
+        <Select onValueChange={handleSelectType} value={selectedType || ""}>
             <SelectTrigger className="w-[100px]">
                 <SelectValue placeholder="Types" />
             </SelectTrigger>

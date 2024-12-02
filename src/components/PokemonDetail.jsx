@@ -25,8 +25,6 @@ const PokemonDetail = ({ pokemonId }) => {
     const { types } = useContext(TypesContext);
     const typesArray = Object.values(types);
 
-    console.log(pokemonId);
-
     const pokemon = listPokemon.find(pokemon => pokemon.id === parseInt(pokemonId));
 
     if (!pokemon) {

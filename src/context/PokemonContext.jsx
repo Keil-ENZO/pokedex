@@ -31,7 +31,6 @@ export const PokemonProvider = ({children}) => {
 
     useEffect(() => {
         client.getTypes().then((response) => {
-            console.log("Fetched types:", response.data);
             setTypes(response.data);
         }).catch((error) => {
             console.log(error);
