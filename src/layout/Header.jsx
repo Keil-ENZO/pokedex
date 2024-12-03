@@ -2,8 +2,6 @@ import Logo from "../assets/React Pokedex logo.svg"
 import SelectLanguage from "../components/SelectLanguage";
 import {Link} from "react-router-dom";
 
-
-
 const Header = () => {
     return (
         <>
