@@ -11,3 +11,6 @@ Currently, two official plugins are available:
 
 npm install
 npm run dev 
+
+## Link to the project
+https://pokedex-o30cruj7v-keilenzos-projects.vercel.app/
