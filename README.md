@@ -13,4 +13,4 @@ npm install
 npm run dev 
 
 ## Link to the project
-https://pokedex-o30cruj7v-keilenzos-projects.vercel.app/
+https://pokedex-wine-eight.vercel.app/
